@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Air monitoring project</title>
+  <meta name="description" content="Google Colab-szerű, cellákra bontott egyoldalas HTML sablon." />
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --paper: #111827;
+      --paper-light: #1f2937;
+      --paper-lighter: #374151;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --border:#1f2937;
+      --accent:#60a5fa;
+      --radius:14px;
+      --shadow:0 6px 18px rgba(0,0,0,.35);
+      --mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      --sans: ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text)}
+
+    header{position:sticky;top:0;z-index:40;background:#111827cc;backdrop-filter:blur(8px);border-bottom:1px solid rgba(148,163,184,.2)}
+    .top{width:min(1100px,94vw);margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 0}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent)}
+    .title{font-weight:700;color:var(--text)}
+    .actions{margin-left:auto;display:flex;gap:10px}
+    .btn{border:1px solid rgba(148,163,184,.25);padding:8px 12px;border-radius:10px;background:var(--paper-light);color:var(--text);text-decoration:none}
+    .btn:hover{background:var(--paper-lighter)}
+
+    .container{width:min(1100px,94vw);margin:24px auto}
+    .notebook{display:grid;gap:18px}
+
+    .cell{
+      display:grid;grid-template-columns:92px 1fr;gap:0;
+      background:var(--paper);
+      border:1px solid rgba(148,163,184,.25);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden; /* biztosítja a mindkét oldali lekerekítést */
+    }
+    .gutter{
+      border-right:1px solid rgba(148,163,184,.15);
+      background:var(--paper-light);
+      padding:16px 12px;
+      display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between
+    }
+    .prompt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+    .label{font-size:12px;color:var(--muted);border:1px solid rgba(148,163,184,.25);padding:4px 8px;border-radius:8px;background:var(--paper-lighter)}
+    .content{padding:20px}
+
+    .content h1{font-size:26px;margin:0 0 10px;color:var(--text)}
+    .content h2{font-size:22px;margin:22px 0 8px;color:var(--text)}
+    .content h3{font-size:18px;margin:18px 0 6px;color:var(--text)}
+    .content p{margin:0 0 10px;line-height:1.6;color:var(--text)}
+    .content ul{margin:0 0 10px 1.2rem}
+    .content code{font-family:var(--mono);background:var(--paper-light);border:1px solid rgba(148,163,184,.25);padding:.1rem .35rem;border-radius:6px;color:var(--accent)}
+
+    figure{margin:0}
+    .imgwrap{display:block;overflow:hidden;border-radius:12px;border:1px solid rgba(148,163,184,.25)}
+    .imgwrap img{display:block;width:100%;height:auto}
+    figcaption{margin-top:8px;color:var(--muted);font-size:14px}
+
+    @media (max-width:860px){ .cell{grid-template-columns:72px 1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top">
+      <span class="dot" aria-hidden="true"></span>
+      <div class="title">OCR with GPT: Serial Number Detection & Verification</div>
+      <div class="actions">
+        <!-- <a class="btn" href="#top">Ugrás a tetejére</a> -->
+        <!-- <a class="btn" href="#beillesztesi-utmutato">Beillesztési útmutató</a> -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="notebook">
+      <a id="top"></a>
+
+      <!-- ======= SZÖVEGES és KÉP CELLÁK – a Word dokumentum sorrendjében töltsd ki ======= -->
+
+      <!-- CELL 1: CÍM/ABSZTRAKT (Word: első oldal) -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [1]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h1 id="attekintes">Overview - Problem Statement</h1>
+          <p style="text-align: justify;"><em>To simplify the use of an existing validation tool – which takes photos of PCBs – it was necessary to automate the reading of handwritten serial numbers on the PCB boards. This step was intended to further eliminate human involvement, thereby reducing the risk of errors. To solve this task, I used the ChatGPT 5 model, which achieved the best results in reading the images during testing.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 2: FOLYAMAT / MÓDSZER -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process</h2>
+          <p style="text-align: justify;"><em>I began the development by gathering the necessary resources from the ChatGPT platform, such as example code, API setup and usage instructions, as well as the official documentation. Based on this, I created the initial version of the program, which was capable of processing image files and reading the serial numbers.</em></p>
+          <p style="text-align: justify;">Once the core functionality was working, the next crucial step was refining the prompt. My goal here was to ensure that the model returned only the information I needed, without unnecessary additions. At the same time, I experimented with different models to identify the one that delivered the best results for this specific task.<em></em></p>
+          <p style="text-align: justify;"><em>During the analysis, I compared the 16-character hexadecimal serial numbers and calculated their Hamming distances. In 57% of the cases I found an exact match, while in the remaining 43% there were small deviations: typically a difference of 1–2 characters (26%), and less frequently 3–4 characters (17%). No deviations greater than four characters occurred at all.</em></p>
+          <p style="text-align: justify;"><em>When performing validation, we already know which serial numbers belong to the given batch. For each recognized number, we run a comparison against all serial numbers in the batch, and the one with the smallest Hamming distance is selected as the correct match.</em></p>
+          <p style="text-align: justify;"><em>Since a 16-character hexadecimal number can form 18,446,744,073,709,551,616 different combinations, the probability that two random numbers would be this similar is statistically negligible.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 3: KÉP -->
+      <section class="cell">
+        <!-- <h2 id="validacio">Steps</h2> -->
+        <div class="gutter">
+          <div class="prompt">In [5]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="Take photo of the serial number.png" alt="Steps of the development" />
+            </div>
+            <figcaption style="text-align: center;"><em>Steps</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="openai_api_difference.png" alt="Daily Temperature Chart" />
+            </div>
+            <figcaption style="text-align: center;"><em>Results</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="pcb_pcb.png" alt="Daily CO2 Chart" />
+            </div>
+            <figcaption style="text-align: center;"><em>Picture of the first and second half of a serial number</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      
+    </div>
+  </main>
+</body>
+</html>
